@@ -12,8 +12,8 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = Lib.MODID, name = Lib.NAME, version = Lib.VERSION, guiFactory = Lib.GUI_FACTORY, dependencies = "required-after:tconstruct@[1.12-2.7.3.30,);"
-        + "required-after:mantle@[1.12-1.3.1.21,)")
+@Mod(modid = Lib.MODID, name = Lib.NAME, version = Lib.VERSION, guiFactory = Lib.GUI_FACTORY, dependencies = "required-after:tconstruct@[1.12-2.13.0.171,);"
+        + "required-after:mantle@[1.12-1.3.3.49,);" + "after:conarm@[1.2.5.9,)")
 public class TinkersAddons
 {
     @Instance(Lib.MODID)
