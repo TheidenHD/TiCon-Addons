@@ -124,7 +124,6 @@ public class ModAutoRepair extends Modifier
                 return 12500 + rand;
             }
         }
-
         return 15000 + rand;
     }
 }
