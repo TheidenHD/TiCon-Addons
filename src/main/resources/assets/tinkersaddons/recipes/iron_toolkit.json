@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "Modifier Kits",
+  "pattern": [
+    "PIP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "type": "minecraft:item_nbt",
+      "item": "tconstruct:large_plate",
+      "data": 0,
+      "nbt": {
+        "Material": "iron"
+      }
+    },
+    "I": {
+      "item": "tconstruct:metal",
+      "data": 4
+    }
+  },
+  "result": {
+    "item": "tinkersaddons:modifier_item",
+    "data": 1
+  }
+}
