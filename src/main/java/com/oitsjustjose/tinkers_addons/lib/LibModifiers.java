@@ -4,6 +4,7 @@ import com.oitsjustjose.tinkers_addons.TinkersAddons;
 import com.oitsjustjose.tinkers_addons.modifiers.ModAutoRepair;
 import com.oitsjustjose.tinkers_addons.modifiers.ModExtraModifier;
 
+import cn.mmf.slashblade_tic.blade.TinkerSlashBladeRegistry;
 import c4.conarm.lib.ArmoryRegistry;
 import c4.conarm.lib.utils.RecipeMatchHolder;
 import net.minecraft.item.ItemStack;
@@ -24,6 +25,7 @@ public class LibModifiers
     	NonNullList<ItemStack> subtypes = NonNullList.create();
     	TinkersAddons.modItems.MODIFIERS.getSubItems(TinkersAddons.modItems.MODIFIERS.getCreativeTab(), subtypes);
     	boolean armor = Loader.isModLoaded("conarm");
+    	boolean slash = Loader.isModLoaded("slashbladetic");
         if (TinkersAddons.modConfig.enableAmelioration)
         {
             auto_repair = new ModAutoRepair();
@@ -31,6 +33,10 @@ public class LibModifiers
             {
             	ArmoryRegistry.registerModifier(auto_repair.getIdentifier(), auto_repair);
             	RecipeMatchHolder.addItem(auto_repair, subtypes.get(0), 1, 1);
+            }
+            if (slash)
+            {
+            	TinkerSlashBladeRegistry.registerModifier(auto_repair);
             }
         }
         if (TinkersAddons.modConfig.enableExtraModifierLvl1)
@@ -41,6 +47,10 @@ public class LibModifiers
             	ArmoryRegistry.registerModifier(extra_modifier_lvl1.getIdentifier(), extra_modifier_lvl1);
             	RecipeMatchHolder.addItem(extra_modifier_lvl1, subtypes.get(1), 1, 1);
             }
+            if (slash)
+            {
+            	TinkerSlashBladeRegistry.registerModifier(extra_modifier_lvl1);
+            }
         }
         if (TinkersAddons.modConfig.enableExtraModifierLvl2)
         {
@@ -49,6 +59,10 @@ public class LibModifiers
             {
             	ArmoryRegistry.registerModifier(extra_modifier_lvl2.getIdentifier(), extra_modifier_lvl2);
             	RecipeMatchHolder.addItem(extra_modifier_lvl2, subtypes.get(2), 1, 1);
+            }
+            if (slash)
+            {
+            	TinkerSlashBladeRegistry.registerModifier(extra_modifier_lvl2);
             }
         }
         if (TinkersAddons.modConfig.enableExtraModifierLvl3)
@@ -59,6 +73,10 @@ public class LibModifiers
             	ArmoryRegistry.registerModifier(extra_modifier_lvl3.getIdentifier(), extra_modifier_lvl3);
             	RecipeMatchHolder.addItem(extra_modifier_lvl3, subtypes.get(3), 1, 1);
             }
+            if (slash)
+            {
+            	TinkerSlashBladeRegistry.registerModifier(extra_modifier_lvl3);
+            }
         }
         if (TinkersAddons.modConfig.enableExtraModifierLvl4)
         {
@@ -67,6 +85,10 @@ public class LibModifiers
             {
             	ArmoryRegistry.registerModifier(extra_modifier_lvl4.getIdentifier(), extra_modifier_lvl4);
             	RecipeMatchHolder.addItem(extra_modifier_lvl4, subtypes.get(4), 1, 1);
+            }
+            if (slash)
+            {
+            	TinkerSlashBladeRegistry.registerModifier(extra_modifier_lvl4);
             }
         }
     }

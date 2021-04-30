@@ -6,6 +6,7 @@ import com.oitsjustjose.tinkers_addons.TinkersAddons;
 import com.oitsjustjose.tinkers_addons.lib.Lib;
 
 import c4.conarm.lib.armor.ArmorCore;
+import cn.mmf.slashblade_tic.blade.SlashBladeCore;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -25,6 +26,7 @@ import slimeknights.tconstruct.library.utils.ToolHelper;
 public class ModAutoRepair extends Modifier
 {
 	private boolean armor;
+	private boolean slash;
 	
     public ModAutoRepair()
     {
@@ -34,6 +36,7 @@ public class ModAutoRepair extends Modifier
         this.addItem(new ItemStack(TinkersAddons.modItems.MODIFIERS, 1, 0), 1, 1);
         MinecraftForge.EVENT_BUS.register(this);
         armor = Loader.isModLoaded("conarm");
+        slash = Loader.isModLoaded("slashbladetic");
     }
 
     @Override
@@ -61,14 +64,14 @@ public class ModAutoRepair extends Modifier
         int autoRepairLevel;
         for (ItemStack iterStack : player.inventory.mainInventory)
         {
-            if (iterStack != null && (iterStack.getItem() instanceof ToolCore  || armor && iterStack.getItem() instanceof ArmorCore))
+            if (iterStack != null && (iterStack.getItem() instanceof ToolCore  || armor && iterStack.getItem() instanceof ArmorCore || slash && iterStack.getItem() instanceof SlashBladeCore))
             {
                 tinkersTools.add(iterStack);
             }
         }
 
         // Works to include items held in the second hand
-        if (player.getHeldItemOffhand() != null && (player.getHeldItemOffhand().getItem() instanceof ToolCore  || armor && player.getHeldItemOffhand().getItem() instanceof ArmorCore))
+        if (player.getHeldItemOffhand() != null && (player.getHeldItemOffhand().getItem() instanceof ToolCore  || armor && player.getHeldItemOffhand().getItem() instanceof ArmorCore || slash && player.getHeldItemOffhand().getItem() instanceof SlashBladeCore))
         {
             tinkersTools.add(player.getHeldItemOffhand());
         }
