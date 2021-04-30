@@ -16,6 +16,8 @@ public class Config
     public boolean enableExtraModifierLvl2;
     public boolean enableExtraModifierLvl3;
     public boolean enableExtraModifierLvl4;
+    public boolean enableConarm;
+    public boolean enableSlashBlade;
 
     public Config(File file)
     {
@@ -51,6 +53,15 @@ public class Config
                 .setRequiresMcRestart(true);
         property.setComment("Adds a new Dragon Egg based Bonus Modifier if enabled");
         enableExtraModifierLvl4 = property.getBoolean();
+        
+        property = config.get(Configuration.CATEGORY_GENERAL, "Enable Construct's Armory Support", true)
+                .setRequiresMcRestart(true);
+        property.setComment("----------- Mod compatibility -----------");
+        enableConarm = property.getBoolean();
+
+        property = config.get(Configuration.CATEGORY_GENERAL, "Enable Tinker's SlashBlade Support", true)
+                .setRequiresMcRestart(true);
+        enableSlashBlade = property.getBoolean();
 
         if (config.hasChanged())
             config.save();

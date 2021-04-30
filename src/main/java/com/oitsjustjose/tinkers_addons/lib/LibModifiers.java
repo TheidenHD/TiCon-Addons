@@ -24,8 +24,8 @@ public class LibModifiers
     {
     	NonNullList<ItemStack> subtypes = NonNullList.create();
     	TinkersAddons.modItems.MODIFIERS.getSubItems(TinkersAddons.modItems.MODIFIERS.getCreativeTab(), subtypes);
-    	boolean armor = Loader.isModLoaded("conarm");
-    	boolean slash = Loader.isModLoaded("slashbladetic");
+    	boolean armor = Loader.isModLoaded("conarm") && TinkersAddons.modConfig.enableConarm;
+    	boolean slash = Loader.isModLoaded("slashbladetic") && TinkersAddons.modConfig.enableSlashBlade;
         if (TinkersAddons.modConfig.enableAmelioration)
         {
             auto_repair = new ModAutoRepair();

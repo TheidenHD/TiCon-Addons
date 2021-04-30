@@ -35,8 +35,8 @@ public class ModAutoRepair extends Modifier
                 ModifierAspect.freeModifier);
         this.addItem(new ItemStack(TinkersAddons.modItems.MODIFIERS, 1, 0), 1, 1);
         MinecraftForge.EVENT_BUS.register(this);
-        armor = Loader.isModLoaded("conarm");
-        slash = Loader.isModLoaded("slashbladetic");
+        armor = Loader.isModLoaded("conarm") && TinkersAddons.modConfig.enableConarm;
+        slash = Loader.isModLoaded("slashbladetic") && TinkersAddons.modConfig.enableSlashBlade;
     }
 
     @Override
